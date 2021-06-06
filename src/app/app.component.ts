@@ -16,20 +16,29 @@ export class AppComponent {
   {
     const operators = ['/', '*', '-', '+']
     const lastIsOperator = operators.includes(this.answer[this.answer.length - 1])
+    const isSecondOperator = operators.includes(input) && lastIsOperator
+    const isEmpty = this.answer.length === 0 && operators.includes(input)
+    let dotscount = 0
+    let opscount = 0
 
-    if(this.isAnsweredError)
+    for (let i = 0; i < this.answer.length; i++) 
+    {
+      if(this.answer[i] === ".")
+      {
+        dotscount++;
+      }
+      if(operators.includes(this.answer[i]))
+      {
+        opscount++;
+      }
+    }
+
+    if(this.isAnsweredError || isSecondOperator || isEmpty)
     {
       return 
-    }
-    if(this.answer.length === 0 && operators.includes(input))
-    {
-      return
-    }
-    if(operators.includes(input) && lastIsOperator)
-    {
-      return
-    }
-    if(!lastIsOperator && this.isAnswered && !operators.includes(input))
+    }  
+    
+    if(dotscount >= opscount+1 && input === '.')
     {
       return 
     }
@@ -67,7 +76,6 @@ export class AppComponent {
         this.isAnsweredError = true
       }
     }
-
     this.isAnswered = true
   }
 
