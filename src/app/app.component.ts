@@ -12,12 +12,12 @@ export class AppComponent {
   answer = ''
   isAnsweredError: boolean = false
   isAnswered: boolean = false
-  pressKey(input: string)
+  pressKey(input: any)
   {
     const operators = ['/', '*', '-', '+']
     const lastIsOperator = operators.includes(this.answer[this.answer.length - 1])
     const isSecondOperator = operators.includes(input) && lastIsOperator
-    const isEmpty = this.answer.length === 0 && operators.includes(input)
+    const isEmpty = this.answer.length === 0 && isNaN(input)
     let dotscount = 0
     let opscount = 0
 
@@ -37,7 +37,7 @@ export class AppComponent {
     {
       return 
     }  
-    
+
     if(dotscount >= opscount+1 && input === '.')
     {
       return 
@@ -78,5 +78,4 @@ export class AppComponent {
     }
     this.isAnswered = true
   }
-
 }
