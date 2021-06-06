@@ -1,0 +1,50 @@
+.base {
+    background: darkslategray;
+    margin-top: 5vh;
+    border: 3px solid black;
+    width: 50%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.opkey
+{
+    color: white;
+    background-color: black;
+}
+
+.keys
+{
+    margin: 0;
+    height: 20%;
+    background: whitesmoke;
+    color: grey;
+    padding: 5%;
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.keypad {
+    height: calc(200% / 3);
+}
+
+.answer
+{
+    background: lightgrey;
+    height: 25vh;
+    padding: 5% !important;
+    font-size: 4rem;
+    text-align: right;
+    font-family: Courier, monospace;
+    overflow: auto;
+}
+
+.input
+{
+    border-bottom: 1px solid black;
+    height: 25%;
+    font-size: 2rem;
+    overflow: auto;
+}
+
