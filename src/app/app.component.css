@@ -1,28 +1,30 @@
 .base {
     background: darkslategray;
-    margin-top: 5vh;
+    margin-top: 20px;
     border: 3px solid black;
-    width: 50%;
+    width: 400px;
     font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
-.opkey
+.opkey, .equalkey, .ackey
 {
-    color: white;
-    background-color: black;
+    color: white !important;
+    background-color: rgba(161, 131, 131, 0.815) !important;
 }
 
-.keys
+.numkey, .ackey, .opkey, .equalkey
 {
     margin: 0;
     height: 20%;
-    background: whitesmoke;
-    color: grey;
+    background: rgba(245, 245, 245, 0.88);
+    color: black;
     padding: 5%;
-    font-size: 2rem;
+    font-size: 40px;
     text-align: center;
     cursor: pointer;
-    opacity: 0.9;
 }
 
 .keypad {
@@ -32,9 +34,9 @@
 .answer
 {
     background: lightgrey;
-    height: 25vh;
+    height: 200px;
     padding: 5% !important;
-    font-size: 4rem;
+    font-size: 70px;
     text-align: right;
     font-family: Courier, monospace;
     overflow: auto;
@@ -42,9 +44,9 @@
 
 .input
 {
-    border-bottom: 1px solid black;
-    height: 25%;
-    font-size: 2rem;
+    border-bottom: 2px solid black;
+    height: 40px;
+    font-size: 30px;
     overflow: auto;
 }
 

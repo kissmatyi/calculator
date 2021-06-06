@@ -12,8 +12,6 @@ export class AppComponent {
   answer = ''
   isAnsweredError: boolean = false
   isAnswered: boolean = false
-  //calculationString = ''
-  constructor(){}
   pressKey(input: string)
   {
     const operators = ['/', '*', '-', '+']
@@ -23,13 +21,13 @@ export class AppComponent {
     {
       return 
     }
-    if(this.answer === '' && operators.includes(input))
+    if(this.answer.length === 0 && operators.includes(input))
     {
-      input = ''
+      return
     }
     if(operators.includes(input) && lastIsOperator)
     {
-        return
+      return
     }
     if(!lastIsOperator && this.isAnswered && !operators.includes(input))
     {
@@ -71,29 +69,6 @@ export class AppComponent {
     }
 
     this.isAnswered = true
-    
-    /*this.calculationString = this.answer;
-    this.op1 = parseFloat(this.answer.split(this.operator)[0]);
-    this.op2 = parseFloat(this.answer.split(this.operator)[1]);
-    if (this.operator === '/') {
-      this.inputString = this.answer;
-      this.answer = (this.op1 / this.op2).toString();
-      this.inputString = this.calculationString;
-    } else if (this.operator === '*') {
-      this.inputString = this.answer;
-      this.answer = (this.op1 * this.op2).toString();
-      this.inputString = this.calculationString;
-    } else if (this.operator === '-') {
-      this.inputString = this.answer;
-      this.answer = (this.op1 - this.op2).toString();
-      this.inputString = this.calculationString;
-    } else if (this.operator === '+') {
-      this.inputString = this.answer;
-      this.answer = eval(this.inputString)
-      this.inputString = this.calculationString;
-    } else {
-      this.inputString = 'ERROR: Invalid Operation';
-    }*/
   }
 
 }
