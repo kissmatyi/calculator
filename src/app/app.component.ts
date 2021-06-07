@@ -33,15 +33,15 @@ export class AppComponent {
       }
     }
 
-    if(this.isAnsweredError || isSecondOperator || isEmpty)
-    {
-      return 
-    }  
-
     if(dotscount >= opscount+1 && input === '.')
     {
       return 
     }
+
+    if(this.isAnsweredError || isSecondOperator || isEmpty)
+    {
+      return 
+    }  
 
     this.answer += input
   }
@@ -54,10 +54,20 @@ export class AppComponent {
     this.isAnswered = false
   }
 
+  clear()
+  {
+      this.answer = this.answer.substring(0, this.answer.length-1)
+  }
+
   getAnswer()
   {
     this.inputString = this.answer
     const isInteger = Number.isInteger(parseFloat(eval(this.inputString)))
+
+    if(this.inputString.length === 0)
+    {
+      return 
+    }
 
     if(isInteger)
     {
@@ -77,5 +87,5 @@ export class AppComponent {
       }
     }
     this.isAnswered = true
-  }
+  } 
 }

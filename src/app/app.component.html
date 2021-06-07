@@ -7,8 +7,10 @@
   <div class="keypad">
     <table style="width: 100%;">
       <tr>
-        <td class="ackey" colspan="3" (click)="allClear()">AC</td>
+        <td class="ackey" colspan="2" (click)="allClear()">AC</td>
+        <td class="ackey" colspan="1" (click)="clear()">C</td>
         <td class="opkey" colspan="1" (click)="pressKey('/')">/</td>
+
       </tr>
       <tr>
         <td class="numkey" (click)="pressKey('7')">7</td>  
