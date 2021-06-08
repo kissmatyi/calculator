@@ -11,16 +11,15 @@ export class AppComponent {
   inputString = ''
   answer = ''
   isAnsweredError: boolean = false
-  isAnswered: boolean = false
   pressKey(input: any)
   {
+    let dotscount = 0
+    let opscount = 0
     const operators = ['/', '*', '-', '+']
     const lastIsOperator = operators.includes(this.answer[this.answer.length - 1])
     const isSecondOperator = operators.includes(input) && lastIsOperator
     const isEmpty = this.answer.length === 0 && isNaN(input)
-    let dotscount = 0
-    let opscount = 0
-
+    
     for (let i = 0; i < this.answer.length; i++) 
     {
       if(this.answer[i] === ".")
@@ -33,12 +32,9 @@ export class AppComponent {
       }
     }
 
-    if(dotscount >= opscount+1 && input === '.')
-    {
-      return 
-    }
+    const enoughDots = dotscount >= opscount+1 && input === '.'
 
-    if(this.isAnsweredError || isSecondOperator || isEmpty)
+    if(this.isAnsweredError || isSecondOperator || isEmpty || enoughDots)
     {
       return 
     }  
@@ -51,19 +47,24 @@ export class AppComponent {
     this.inputString = ''
     this.answer = ''
     this.isAnsweredError = false
-    this.isAnswered = false
   }
 
   clear()
   {
+    if(this.isAnsweredError)
+    {
+      return
+    }
+    else
+    {
       this.answer = this.answer.substring(0, this.answer.length-1)
+    }
   }
 
   getAnswer()
   {
     this.inputString = this.answer
     const isInteger = Number.isInteger(parseFloat(eval(this.inputString)))
-
     if(this.inputString.length === 0)
     {
       return 
@@ -71,7 +72,7 @@ export class AppComponent {
 
     if(isInteger)
     {
-      this.answer = eval(this.inputString)
+      this.answer = ''.concat(eval(this.inputString))
     }
     else
     {
@@ -83,9 +84,8 @@ export class AppComponent {
       if(this.inputString[i] === '0' && this.inputString[i-1] === "/")
       {
         this.answer = 'Math Error'
-        this.isAnsweredError = true
+        this.isAnsweredError = true 
       }
     }
-    this.isAnswered = true
   } 
 }
